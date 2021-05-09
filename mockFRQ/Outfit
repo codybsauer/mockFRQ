@@ -1,0 +1,4 @@
+public class Outfit {
+Outfit outfit1 = new Outfit(shirt, pants, shoes); 
+
+}

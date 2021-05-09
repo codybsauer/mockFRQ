@@ -56,9 +56,14 @@ public class ParkingLot {
 
 	public ParkingSpace findCar(String license) {
 		/* to be implemented in part b */
-		for(cars) {
-			
+		for(int i = 0; i < cars.length; i++) {
+			for(int j = 0; j < cars[i].length; i++) {
+				if(license.equals(cars[i][j].getLicensePlate())) {
+					return new ParkingSpace(i,j);
+				}
+			}
 		}
+		return null;
 	}
 
 	/**
@@ -81,6 +86,16 @@ public class ParkingLot {
 
 	public boolean parkCar(Car car) {
 		/* to be implemented in part c */
+		ParkingSpace space = findEmptySpace();
+		findCar(car.getLicensePlate());
+		if(findCar(car.getLicensePlate()) != null) {
+			return true;
+		}
+		if(space != null) {
+			cars[space.getRow()][space.getCol()] = car;
+			availableSpaces -= 1;
+		}
+		return false;
 	}
 
 	private ParkingSpace findEmptySpace() {
@@ -97,12 +112,19 @@ public class ParkingLot {
 class ParkingSpace {
 	private int row;
 	private int col;
+	
 
 	public ParkingSpace(int row, int col) {
 		this.row = row;
 		this.col = col;
 	}
 	/* other methods and variables not shown */
+	public int getRow() {
+		return row;
+	}
+	public int getCol() {
+		return col;
+	}
 }
 
 // A Car is represented by the following class:
