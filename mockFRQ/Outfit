@@ -1,4 +1,57 @@
-public class Outfit {
-Outfit outfit1 = new Outfit(shirt, pants, shoes); 
+public class OutfitRunner {
+
+	public static void main(String[] args) {
+	
+		Outfit outfit = new Outfit(new Shirt("Short-sleeved"), 
+			new Pants("Jeans"), new Shoes("Sneakers"));
+			
+			outfit.getName();
+			//“Outfit Short-sleeved,Jeans,Sneakers”
+	
+	}
+
+}
+
+public class Outfit extends SaleItem{
+
+Shirt shirt;
+Pants pant;
+Shoes shoes;
+
+public Outfit (Shirt shirt, Pants pants, Shoes shoes){
+	this.shirt = shirt;
+	this.pant = pant;
+	this.shoes = shoes;
+}
+
+public String getName (){
+	String name = "Outfit " + shirt.getName() + ", " + pants.getName() + ", " + shoes.getName();
+	
+}
+
+public double getPrice (){
+double shirtPrice = shirt.getPrice();
+double pantsPrice = pants.getPrice();
+double shoesPrice = shoes.getPrice();
+
+if(shirtPrice > pantsPrice){
+	if(pantsPrice > shoesPrice) {
+		return shirtPrice + pantsPrice;
+	}
+	else {
+		return shirtPrice + shoesPrice;
+	}
+}
+else {
+
+	if(shirtPrice > shoesPrice) {
+		return pantsPrice + shirtPrice
+	}
+	else {
+		return pantsPrice + shoesPrice;
+	}
+}
+
+}
 
 }
