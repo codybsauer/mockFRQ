@@ -1,0 +1,54 @@
+public class WeatherStation {
+
+static final double MAX_VALUE; //initialized by constructor
+static final double MIN_VALUE; //initialized by constructor
+
+/** the array of temperatures at this station – not null */
+private double [] temperatures;
+
+/** Removes all anomalous temperature values.
+* Anomalous values are those higher than MAX_VALUE or
+* lower than MIN_VALUE
+*
+* Precondition: temperatures contains at least one value
+* Postcondition: temperatures only contains values between
+* MIN_VALUE and MAX_VALUE.
+*
+* @return the number of anomalous values the method removed.
+*
+*/
+
+public int removeAnomalousValues() {
+int numberOfCorrect = 0;
+for(int i = 0; i <= temperatures.length(); i++){
+if(temperatures[i] >= MIN_VALUE && temperatures[i] <= MAX_VALUE){
+numberOfCorrect += 1;
+}
+
+
+}
+
+double [] correctValues = new double [numberOfCorrect];
+int correctCounter = 0;
+int temp = 0;
+while(correctCounter < correctValues.length()){
+if(temperatures[temp] >= MIN_VALUE && temperatures[temp] <= MAX_VALUE){
+correctValues[correctCouinter] = temperatures[temp];
+correctCounter += 1;
+}
+temp += 1;
+}
+int total = temperatures.length();
+temperatures = correctValues;
+return total - temperatures.length;
+}
+public void roundTemperatures () {
+
+/* to be implemented in part b */
+
+}
+private double roundValue(double value, int decimalPlaces)
+{ /* implementation not shown */ }
+
+/* constuctors, other variables, and methods not shown */
+}

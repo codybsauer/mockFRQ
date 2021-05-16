@@ -30,6 +30,7 @@ public String getName (){
 }
 
 public double getPrice (){
+
 double shirtPrice = shirt.getPrice();
 double pantsPrice = pants.getPrice();
 double shoesPrice = shoes.getPrice();
